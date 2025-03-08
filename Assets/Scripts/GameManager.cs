@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static UnityEngine.Rendering.DebugUI;
 
 public class GameManager : MonoBehaviour
 {
@@ -63,12 +65,14 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        Console.WriteLine("Metodo GameOver");
         gameOver = true;
         gameOverPanel.SetActive(true);
     }
 
     public void GameWon()
     {
+        Console.WriteLine("Metodo GameWon");
         Destroy(ball.gameObject);
         gameWonPanel.SetActive(true);
         gameOver = true;
@@ -76,6 +80,7 @@ public class GameManager : MonoBehaviour
 
     public void SetSpawnedBricks(int value)
     {
+        Console.WriteLine("Brick spawnati: " + value);
         spawnedBricks = value;
     }
 
@@ -84,6 +89,7 @@ public class GameManager : MonoBehaviour
         spawnedBricks--;
         if(spawnedBricks <= 0)
         {
+            Console.WriteLine("Hai vinsto, brick distrutti: " + spawnedBricks);
             GameWon();
         }
     }
